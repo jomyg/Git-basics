@@ -191,6 +191,7 @@ From above, this is will print the Untracked files and which means there is no c
 9 directories, 4 files
 ```
 #### We can now add the linux.txt to git. So the untracked disappered and an object is created under the local repository ".git"
+```
 [root@ip-172-31-9-154 mydir]# git add linux.txt
 [root@ip-172-31-9-154 mydir]# git status
 On branch master
@@ -204,13 +205,13 @@ Changes to be committed:
 
 sha1sum linux.txt        >>> Checksum value of the file which we created
 dec17802ef81e76f897e0480b9da459342008e41  linux.txt
-
+```
 GIT is identify the contents by its checksum value and no filename as above.
 An object is subdir under the .git
 
 Index file or staging file under .git. Under the index file it will write that the linux.txt and its checksum value not the the file content.
 This occur when we "git add". Content is under the .git dir.
-
+```
 [root@ip-172-31-9-154 mydir]# tree .git/
 .git/
 ├── branches
@@ -233,12 +234,12 @@ This occur when we "git add". Content is under the .git dir.
 10 directories, 6 files
 
 ================================================================================================================================================
-
+```
 Now we can add some files to test.
-
+```
 root@ip-172-31-9-154 mydir]# echo "i am jomy bsd" > bsd.txt
 [root@ip-172-31-9-154 mydir]# echo "i am jomy wind" > windows.txt
-[root@ip-172-31-9-154 mydir]# echo "i am jomy" > bsdtest.txt >>>>>>>... Same content of linux.txt so that the checksume is same so dont need to create another object
+[root@ip-172-31-9-154 mydir]# echo "i am jomy" > bsdtest.txt >>>>>>>... Same content of linux.txt so that the checksum is same so dont need to create another object
 So it will add the bsdtest.txt under index file not under the object. If new content it will create a object and add to index.file.
 
 [root@ip-172-31-9-154 mydir]# sha1sum linux.txt
@@ -271,9 +272,9 @@ dec17802ef81e76f897e0480b9da459342008e41  bsdtest.txt
 
 12 directories, 8 files
 ================================================================================================================================================
-
+```
 We can display the index file of git using command: "git ls-files -s" under working dir.
-
+```
 [root@ip-172-31-9-154 mydir]# git ls-files -s
 100644 c045531a2973dd9ee03933a502153ee3e944aae6 0       bsd.txt             Same object
 100644 c045531a2973dd9ee03933a502153ee3e944aae6 0       bsdtest.txt         Same object
@@ -304,9 +305,9 @@ We can display the index file of git using command: "git ls-files -s" under work
     └── tags
 
 12 directories, 8 files
-
+```
 #### If we change the content of bsd.txt
-
+```
 [root@ip-172-31-9-154 mydir]# echo "i am jomy george" > bsd.txt
 [root@ip-172-31-9-154 mydir]# git status
 On branch master
@@ -390,10 +391,10 @@ Changes not staged for commit:
 
 : Old object will delete automatically from git. We can revoke on the above process.
 
-
+```
 ### What is Commit ?
 ================================================================================================================================================
-
+```
 [root@ip-172-31-9-154 mydir]# git commit -m "commit 1"
 [master (root-commit) 5414c7d] commit 1
  4 files changed, 4 insertions(+)
@@ -466,13 +467,13 @@ commit 1
 [root@ip-172-31-9-154 mydir]# git cat-file -p c045531a2973dd9ee03933a502153ee3e944aae6   
 i am jomy
 [root@ip-172-31-9-154 mydir]#
-
+```
 
 #### Branch pointer : This will keep the object checksum value of commit. 
 A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master . 
 As you start making commits, you're given a master branch that points to the last commit you made. 
 Every time you commit, the master branch pointer moves forward automatically.
-
+```
 [root@ip-172-31-9-154 mydir]# git branch
 * master                          >>>>>>>>>>>>>>>>>>>> Branch
 
@@ -524,10 +525,10 @@ author jomy <jomy1@gmail.com> 1647343441 +0000
 committer jomy <jomy1@gmail.com> 1647343441 +0000
 
 commit 1  
-
+```
 #### WHat is head pointer
 Keeping the branch pointer name as file called head pointer.
-
+```
 [root@ip-172-31-9-154 mydir]#  tree .git
 .git
 ├── branches
@@ -540,3 +541,4 @@ Keeping the branch pointer name as file called head pointer.
 
 [root@ip-172-31-9-154 mydir]# cat .git/HEAD
 ref: refs/heads/master
+```
