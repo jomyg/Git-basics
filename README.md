@@ -4,7 +4,7 @@
 #### Hash function and checksum value:
 ```
 ----
-We can check the file content is same or different on source and destination if we copy the file. This can be test using the checksum
+We can check the file content whether its is same or different on source and destination when  we copy the file. This can be test using the checksum
 Hash function: It will return a fixed length string.
 
 eg: Using the sha1sum
