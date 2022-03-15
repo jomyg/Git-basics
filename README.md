@@ -1,10 +1,8 @@
-# Git-basics
-
-
 
 ### Git Basics
 
 #### Hash function and checksum value:
+```
 ----
 We can check the file content is same or different on source and destination if we copy the file. This can be test using the checksum
 Hash function: It will return a fixed length string.
@@ -24,7 +22,7 @@ fe5279dd65cab86e06a23fa29ed26db2109c2798  bsd.txt
 fe04bd912292a3b43c8dd55595e7dbef  bsdsum.txt
 # md5sum linux.txt
 5103dca041d81f5967e9a62e8b85ee18  linux.txt
-
+```
 We can check all the file checksum value using appropriate algoirthms eg: md5sum and sha1sum. This way we can download a ISO file and can be verify using 
 their provided checksum value. We can use sha256 algorithm to check. If the value is different on checksum then the downloaded file is different.
 
@@ -65,7 +63,7 @@ The git add command adds a change in the working directory to the staging area.
 It tells Git that you want to include updates to a particular file in the next commit.
 
 We can test this now on our system.
-
+```
 [root@ip-172-31-9-154 mydir]# git init
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
@@ -134,8 +132,9 @@ drwxr-xr-x 7 root root 119 Mar 15 10:20 .git
 
 9 directories, 4 files
 ================================================================================================================================================
+```
 ### Now we can configure the git using config command:
-
+```
 [root@ip-172-31-9-154 mydir]# git config user.name "jomy"
 [root@ip-172-31-9-154 mydir]# git config user.email "jomy1@gmail.com"
 [root@ip-172-31-9-154 mydir]# cat .git/config
@@ -166,7 +165,8 @@ Untracked files:
         linux.txt
 
 nothing added to commit but untracked files present (use "git add" to track) "The track means build"
-
+```
+```
 >> The git status command displays the state of the working directory and the staging area. It lets you see which changes have been staged, 
 which haven't, and which files aren't being tracked by Git.
 From above, this is will print the Untracked files and which means there is no contents of linux.txt in .git DIR.
@@ -189,6 +189,7 @@ From above, this is will print the Untracked files and which means there is no c
     └── tags
 
 9 directories, 4 files
+```
 #### We can now add the linux.txt to git. So the untracked disappered and an object is created under the local repository ".git"
 [root@ip-172-31-9-154 mydir]# git add linux.txt
 [root@ip-172-31-9-154 mydir]# git status
