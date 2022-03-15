@@ -394,6 +394,8 @@ Changes not staged for commit:
 ```
 ### What is Commit ?
 ================================================================================================================================================
+The git commit command captures a snapshot of the project's currently staged changes. Committed snapshots can be thought of as “safe” versions of a project—Git will never change them unless you explicitly ask it to.
+
 ```
 [root@ip-172-31-9-154 mydir]# git commit -m "commit 1"
 [master (root-commit) 5414c7d] commit 1
